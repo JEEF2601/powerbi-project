@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "a7b8c9d0e1f203040506",
+  "name": "e671e22f120401aa81d0",
   "position": {
     "x": 0,
-    "y": 179.58247525634488,
+    "y": 119.58247525634488,
     "z": 2000,
     "height": 45.671641791044777,
     "width": 186.71641791044775
@@ -26,7 +26,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'people-svgrepo-com.svg'"
+                      "Value": "'list-check-svgrepo-com.svg'"
                     }
                   }
                 },
@@ -35,7 +35,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "people-svgrepo-com9346479488564109.svg"
+                      "ItemName": "list-check-svgrepo-com26751393898058606.svg"
                     }
                   }
                 },
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'employees'"
+                  "Value": "'Sales Details'"
                 }
               }
             },
@@ -176,7 +176,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2C2336'"
+                      "Value": "'#BA73EC'"
                     }
                   }
                 }
@@ -217,13 +217,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'PageNavigation'"
-                }
-              }
-            },
-            "navigationSection": {
-              "expr": {
-                "Literal": {
-                  "Value": "'f1b2c3d4e5a6b7c8d9e0'"
                 }
               }
             }

@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "a7b8c9d0e1f203040506",
+  "name": "0054bca03cd3e6110a50",
   "position": {
     "x": 0,
-    "y": 179.58247525634488,
-    "z": 2000,
-    "height": 45.671641791044777,
+    "y": 0,
+    "z": 1000,
+    "height": 45,
     "width": 186.71641791044775
   },
   "visual": {
@@ -26,7 +26,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'people-svgrepo-com.svg'"
+                      "Value": "'home-White-com.svg'"
                     }
                   }
                 },
@@ -35,7 +35,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "people-svgrepo-com9346479488564109.svg"
+                      "ItemName": "home-White-com595461383748692.svg"
                     }
                   }
                 },
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'employees'"
+                  "Value": "'Principal'"
                 }
               }
             },
@@ -202,37 +202,8 @@
         }
       ]
     },
-    "visualContainerObjects": {
-      "visualLink": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'PageNavigation'"
-                }
-              }
-            },
-            "navigationSection": {
-              "expr": {
-                "Literal": {
-                  "Value": "'f1b2c3d4e5a6b7c8d9e0'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "340586600688d0ac8ad6",
+  "parentGroupName": "00859267019db7501030",
   "howCreated": "InsertVisualButton"
 }

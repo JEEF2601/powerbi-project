@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "a7b8c9d0e1f203040506",
+  "name": "29c44210d7d0e7009cc1",
   "position": {
     "x": 0,
-    "y": 179.58247525634488,
+    "y": 59.582475256344878,
     "z": 2000,
     "height": 45.671641791044777,
     "width": 186.71641791044775
@@ -26,7 +26,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'people-svgrepo-com.svg'"
+                      "Value": "'earth-with-continents-White-svgrepo-com.svg'"
                     }
                   }
                 },
@@ -35,7 +35,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "people-svgrepo-com9346479488564109.svg"
+                      "ItemName": "earth-with-continents-White-sv45806236731101657.svg"
                     }
                   }
                 },
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'employees'"
+                  "Value": "'Regional Sales'"
                 }
               }
             },
@@ -176,7 +176,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2C2336'"
+                      "Value": "'#BA73EC'"
                     }
                   }
                 }
@@ -219,13 +219,6 @@
                   "Value": "'PageNavigation'"
                 }
               }
-            },
-            "navigationSection": {
-              "expr": {
-                "Literal": {
-                  "Value": "'f1b2c3d4e5a6b7c8d9e0'"
-                }
-              }
             }
           }
         }
@@ -233,6 +226,6 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "340586600688d0ac8ad6",
+  "parentGroupName": "00859267019db7501030",
   "howCreated": "InsertVisualButton"
 }

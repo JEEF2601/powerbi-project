@@ -35,7 +35,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "people-svgrepo-com9346479488564109.svg"
+                      "ItemName": "people-svgrepo-com5260007074501228.svg"
                     }
                   }
                 },
@@ -176,7 +176,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2C2336'"
+                      "Value": "'#BA73EC'"
                     }
                   }
                 }
