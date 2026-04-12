@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "29c44210d7d0e7009cc1",
+  "name": "e671e22f120401aa81d0",
   "position": {
     "x": 0,
-    "y": 59.582475256344878,
+    "y": 119.58247525634488,
     "z": 2000,
     "height": 45.671641791044777,
     "width": 186.71641791044775
@@ -26,7 +26,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'earth-with-continents-White-svgrepo-com.svg'"
+                      "Value": "'list-check-svgrepo-com.svg'"
                     }
                   }
                 },
@@ -35,7 +35,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "earth-with-continents-White-sv45806236731101657.svg"
+                      "ItemName": "list-check-svgrepo-com26751393898058606.svg"
                     }
                   }
                 },
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Regional Sales'"
+                  "Value": "'Sales Details'"
                 }
               }
             },
@@ -226,6 +226,6 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "00859267019db7501030",
+  "parentGroupName": "340586600688d0ac8ad6",
   "howCreated": "InsertVisualButton"
 }

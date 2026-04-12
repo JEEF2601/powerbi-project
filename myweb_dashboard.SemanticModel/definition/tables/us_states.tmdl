@@ -13,6 +13,7 @@ table us_states
 	column state_name
 		dataType: string
 		lineageTag: 95edf4ed-6dbf-4624-9bf3-facb86bfa83e
+		dataCategory: StateOrProvince
 		summarizeBy: none
 		sourceColumn: state_name
 
