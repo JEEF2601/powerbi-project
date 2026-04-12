@@ -1,0 +1,106 @@
+table customers
+	lineageTag: 506a83b2-5bb5-442f-ae63-ff121b4a6366
+
+	column customer_id
+		dataType: string
+		lineageTag: 55580b27-10e4-4239-ae90-afb4b7affc74
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 6487eb37-acc1-4e66-b7ce-79d1202d5014
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_name
+		dataType: string
+		lineageTag: 698265aa-ccae-4bda-a1ec-37ffdf04cb00
+		summarizeBy: none
+		sourceColumn: contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_title
+		dataType: string
+		lineageTag: 2e1773be-eefd-4cb3-bf6a-ae2a93ab1651
+		summarizeBy: none
+		sourceColumn: contact_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column address
+		dataType: string
+		lineageTag: 0ff85932-9954-4de7-a6d7-456c68829e90
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 7d058d12-655e-47c1-b88c-1c6e5a459fce
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 20e4fdea-4579-4db9-ad63-5dcda5585f0d
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column postal_code
+		dataType: string
+		lineageTag: 48b7b707-61a9-4f28-b827-6e19c6b4830c
+		summarizeBy: none
+		sourceColumn: postal_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 75169654-dc64-42fb-98cf-0dcfe6ede61a
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: 6390bf28-4143-4265-a69d-88fc7e223476
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column fax
+		dataType: string
+		lineageTag: 68e32766-636d-4052-b635-1cfb1164d07a
+		summarizeBy: none
+		sourceColumn: fax
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customers = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_customers")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"customer_id", "company_name", "contact_name", "contact_title", "address", "city", "region", "postal_code", "country", "phone", "fax"}, {"customer_id", "company_name", "contact_name", "contact_title", "address", "city", "region", "postal_code", "country", "phone", "fax"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"customer_id", type text}, {"company_name", type text}, {"contact_name", type text}, {"contact_title", type text}, {"address", type text}, {"city", type text}, {"region", type text}, {"postal_code", type text}, {"country", type text}, {"phone", type text}, {"fax", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

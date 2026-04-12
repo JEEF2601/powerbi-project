@@ -1,0 +1,44 @@
+table territories
+	lineageTag: 0c30d62d-d4e7-4061-b864-be34d01df74a
+
+	column territory_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 41940f55-7c0b-4a67-8185-c8d8aaf42bc5
+		summarizeBy: none
+		sourceColumn: territory_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column territory_description
+		dataType: string
+		lineageTag: 8512bf76-37d2-4e00-8dc0-bb2388c8da4d
+		summarizeBy: none
+		sourceColumn: territory_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 56a87d38-8be6-495c-a340-24e30077049b
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition territories = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_territories")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"territory_id", "territory_description", "region_id"}, {"territory_id", "territory_description", "region_id"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"territory_id", Int64.Type}, {"territory_description", type text}, {"region_id", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

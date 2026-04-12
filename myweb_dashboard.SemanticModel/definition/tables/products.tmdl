@@ -1,0 +1,107 @@
+table products
+	lineageTag: 0439cdb6-92ed-4903-9a10-370993794ba6
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b82fe9dc-8140-48e6-b0b8-e041bbb3aa3e
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 29320e95-104b-4d2e-84a0-00e804162143
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 76fed124-ab06-4a22-ab79-23bc0965fd0a
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f4e6e54b-91c8-4860-b23d-5663a136491e
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity_per_unit
+		dataType: string
+		lineageTag: d75270d3-2916-498d-b7c8-2797ab89833a
+		summarizeBy: none
+		sourceColumn: quantity_per_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: e9da681f-42fb-4db0-a0bf-017c264196c3
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column units_in_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d23f8d9-a7b4-4096-8e12-b13e3201e82e
+		summarizeBy: sum
+		sourceColumn: units_in_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column units_on_order
+		dataType: int64
+		formatString: 0
+		lineageTag: ba3785ae-4de8-4dd6-baa8-ab5b0cd0ef00
+		summarizeBy: sum
+		sourceColumn: units_on_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column reorder_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 921b49e8-c236-4e56-bb64-defdd6d88adb
+		summarizeBy: sum
+		sourceColumn: reorder_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column discontinued
+		dataType: int64
+		formatString: 0
+		lineageTag: b67624d4-735c-4c3f-8a98-fe76f1b15be4
+		summarizeBy: sum
+		sourceColumn: discontinued
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_products")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"product_id", "product_name", "supplier_id", "category_id", "quantity_per_unit", "unit_price", "units_in_stock", "units_on_order", "reorder_level", "discontinued"}, {"product_id", "product_name", "supplier_id", "category_id", "quantity_per_unit", "unit_price", "units_in_stock", "units_on_order", "reorder_level", "discontinued"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"product_id", Int64.Type}, {"product_name", type text}, {"supplier_id", Int64.Type}, {"category_id", Int64.Type}, {"quantity_per_unit", type text}, {"unit_price", type number}, {"units_in_stock", Int64.Type}, {"units_on_order", Int64.Type}, {"reorder_level", Int64.Type}, {"discontinued", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

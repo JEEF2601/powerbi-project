@@ -1,0 +1,51 @@
+table us_states
+	lineageTag: 0498d944-1af5-4a89-ab06-370aac47997a
+
+	column state_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 703cbe9d-dfce-45de-9715-882ed7223ede
+		summarizeBy: sum
+		sourceColumn: state_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 95edf4ed-6dbf-4624-9bf3-facb86bfa83e
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_abbr
+		dataType: string
+		lineageTag: c82c12ca-4438-4124-87cd-d303089b3187
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_region
+		dataType: string
+		lineageTag: 50cb9ec9-43ba-443e-bd88-7fa55b8c58bd
+		summarizeBy: none
+		sourceColumn: state_region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition us_states = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_us_states")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"state_id", "state_name", "state_abbr", "state_region"}, {"state_id", "state_name", "state_abbr", "state_region"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"state_id", Int64.Type}, {"state_name", type text}, {"state_abbr", type text}, {"state_region", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

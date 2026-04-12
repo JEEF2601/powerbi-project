@@ -1,0 +1,36 @@
+table employee_territories
+	lineageTag: 0fb3905a-96ab-4793-b94f-3227062c13da
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bec1561b-6eda-4e02-8dfb-3f8bd005e694
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column territory_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 911426b8-0109-4f24-b325-7a4387ce7c2b
+		summarizeBy: none
+		sourceColumn: territory_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_territories = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_employee_territories")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"employee_id", "territory_id"}, {"employee_id", "territory_id"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"employee_id", Int64.Type}, {"territory_id", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

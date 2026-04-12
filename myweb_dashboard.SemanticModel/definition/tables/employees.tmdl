@@ -1,0 +1,181 @@
+table employees
+	lineageTag: b29e6657-352d-4063-9935-d0beca8816de
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 85cf9291-d017-44e4-b91c-dd01fa7fd515
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 358bc816-6051-4099-9156-8d65492cfc98
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: bc9cdd52-e0c7-4666-a869-3e90f64bae0b
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 976ae108-89cb-4f5b-927c-e357287919de
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column title_of_courtesy
+		dataType: string
+		lineageTag: fe40e1b9-7114-4f96-b524-776067893558
+		summarizeBy: none
+		sourceColumn: title_of_courtesy
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 11cc5a9e-c7ad-4510-b230-ac2c0ecceb3c
+		summarizeBy: none
+		sourceColumn: birth_date
+
+		variation Variation
+			isDefault
+			relationship: c3f9947a-5569-4e3f-8c42-fe7f6f8949fb
+			defaultHierarchy: LocalDateTable_932759b4-3c91-4007-a635-38f6d12491b1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hire_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2c1ae12b-2321-4117-aea9-2f603699d570
+		summarizeBy: none
+		sourceColumn: hire_date
+
+		variation Variation
+			isDefault
+			relationship: 193d6b92-5680-45cc-9652-4b823dc9645c
+			defaultHierarchy: LocalDateTable_e46be354-f097-4af6-bc25-88fd61c0cde1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column address
+		dataType: string
+		lineageTag: f8ac6241-5208-44e0-a14c-288969903607
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 179ed9ee-eaab-4ad7-8219-731301315f47
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 81132741-948d-441e-9186-16a27f029887
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column postal_code
+		dataType: string
+		lineageTag: 38b9873b-fdc2-43f2-b5d9-05a9ce74435f
+		summarizeBy: none
+		sourceColumn: postal_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 93d3cd43-ee46-41df-ab72-819d6c6f8f3b
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_phone
+		dataType: string
+		lineageTag: 86f50274-af0e-4898-982b-f6be352ba6bf
+		summarizeBy: none
+		sourceColumn: home_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension
+		dataType: int64
+		formatString: 0
+		lineageTag: 25c959b3-3394-4a99-b022-50eadaa7ea60
+		summarizeBy: sum
+		sourceColumn: extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column photo
+		dataType: string
+		lineageTag: 76db9379-2d28-4c06-924b-d86974983418
+		summarizeBy: none
+		sourceColumn: photo
+
+		annotation SummarizationSetBy = Automatic
+
+	column notes
+		dataType: string
+		lineageTag: b6494b4b-6aa0-4245-bcc8-dca353400394
+		summarizeBy: none
+		sourceColumn: notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column reports_to
+		dataType: int64
+		formatString: 0
+		lineageTag: a4aa622d-607a-40d6-9178-10804e92e488
+		summarizeBy: sum
+		sourceColumn: reports_to
+
+		annotation SummarizationSetBy = Automatic
+
+	column photo_path
+		dataType: string
+		lineageTag: ea479c60-659a-4a7a-aa8f-10eaa41722f0
+		summarizeBy: none
+		sourceColumn: photo_path
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employees = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_employees")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"employee_id", "last_name", "first_name", "title", "title_of_courtesy", "birth_date", "hire_date", "address", "city", "region", "postal_code", "country", "home_phone", "extension", "photo", "notes", "reports_to", "photo_path"}, {"employee_id", "last_name", "first_name", "title", "title_of_courtesy", "birth_date", "hire_date", "address", "city", "region", "postal_code", "country", "home_phone", "extension", "photo", "notes", "reports_to", "photo_path"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"employee_id", Int64.Type}, {"last_name", type text}, {"first_name", type text}, {"title", type text}, {"title_of_courtesy", type text}, {"birth_date", type date}, {"hire_date", type date}, {"address", type text}, {"city", type text}, {"region", type text}, {"postal_code", type text}, {"country", type text}, {"home_phone", type text}, {"extension", Int64.Type}, {"photo", type text}, {"notes", type text}, {"reports_to", Int64.Type}, {"photo_path", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

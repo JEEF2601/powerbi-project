@@ -1,0 +1,64 @@
+table order_details
+	lineageTag: 851d02c9-13f7-47b1-be55-37c3f797e2ff
+
+	column order_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c49dce0-7729-4983-ad35-57539bfcad09
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 15ffb373-37e2-489a-9c60-a1d0c1ea57cc
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 5a0c759e-4425-4abb-bc66-f3ae81b4fd10
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: b7af70d6-60a2-4fa8-9b68-df34836a73ae
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount
+		dataType: int64
+		formatString: 0
+		lineageTag: d7974f96-a3e0-474a-a807-1c7d9e66d0e0
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition order_details = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_order_details")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"order_id", "product_id", "unit_price", "quantity", "discount"}, {"order_id", "product_id", "unit_price", "quantity", "discount"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"order_id", Int64.Type}, {"product_id", Int64.Type}, {"unit_price", type number}, {"quantity", Int64.Type}, {"discount", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

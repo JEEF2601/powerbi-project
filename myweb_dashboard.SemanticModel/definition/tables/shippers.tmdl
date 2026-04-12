@@ -1,0 +1,43 @@
+table shippers
+	lineageTag: e7635ca2-8127-4f4f-95e5-e4f49b513937
+
+	column shipper_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 22dafb6a-e6d8-4d45-ac90-288a5aa79d60
+		summarizeBy: sum
+		sourceColumn: shipper_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 839c30e0-e2e2-437e-8b43-a0af09569ce7
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: 5b6b1a55-283f-46f4-84a0-9adda5adbd31
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition shippers = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_shippers")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"shipper_id", "company_name", "phone"}, {"shipper_id", "company_name", "phone"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"shipper_id", Int64.Type}, {"company_name", type text}, {"phone", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

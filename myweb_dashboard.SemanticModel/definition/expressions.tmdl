@@ -1,0 +1,33 @@
+expression customer_demographics =
+		let
+		    Source = Json.Document(Web.Contents(API &"/bronze_customer_demographics")),
+		    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{})
+		in
+		    #"Changed Type"
+	lineageTag: 1a8ceca8-d808-4ec8-b082-a0b36dacd29b
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression customer_customer_demo =
+		let
+		    Source = Json.Document(Web.Contents(API &"/bronze_customer_customer_demo")),
+		    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{})
+		in
+		    #"Changed Type"
+	lineageTag: b89083eb-0e4f-46c6-8146-123df0f9ba7f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression API = "|API|" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 6d641db7-0581-49b4-b75b-3860c22e1bb2
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

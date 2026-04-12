@@ -1,0 +1,63 @@
+relationship c3f9947a-5569-4e3f-8c42-fe7f6f8949fb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employees.birth_date
+	toColumn: LocalDateTable_932759b4-3c91-4007-a635-38f6d12491b1.Date
+
+relationship 193d6b92-5680-45cc-9652-4b823dc9645c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employees.hire_date
+	toColumn: LocalDateTable_e46be354-f097-4af6-bc25-88fd61c0cde1.Date
+
+relationship d1fb7be1-f52d-474d-8897-4cd74d692a2c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.order_date
+	toColumn: LocalDateTable_288bf2f8-6cb1-4e28-948d-f24b4d9c1acd.Date
+
+relationship ce513a8a-b3ec-4b0d-9c2d-fa064e28e209
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.required_date
+	toColumn: LocalDateTable_19f3922b-e54c-41c3-9809-59e594c42171.Date
+
+relationship 87b3811a-c754-4a95-884d-239862179602
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.shipped_date
+	toColumn: LocalDateTable_50b91a5a-2912-4245-b12f-57e89f789092.Date
+
+relationship AutoDetected_eca394c9-e60e-4061-a6f6-3f980b68c22a
+	fromColumn: order_details.order_id
+	toColumn: orders.order_id
+
+relationship AutoDetected_532df431-2101-4697-a677-97d6323b4b6e
+	fromColumn: order_details.product_id
+	toColumn: products.product_id
+
+relationship AutoDetected_c2153874-9678-44f8-bc0d-b36cd449a710
+	fromColumn: orders.customer_id
+	toColumn: customers.customer_id
+
+relationship AutoDetected_5a9eb61a-6128-4f1d-96ec-6df95f651e96
+	fromColumn: products.category_id
+	toColumn: categories.category_id
+
+relationship AutoDetected_e551e511-25d3-4caf-b3da-8f9d7e8264a6
+	fromColumn: orders.employee_id
+	toColumn: employees.employee_id
+
+relationship AutoDetected_1c90b8b7-fdcb-41d5-b38f-b163a324fa08
+	fromColumn: employee_territories.employee_id
+	toColumn: employees.employee_id
+
+relationship AutoDetected_03efbe1c-052b-4e59-b927-f94796d56ad2
+	fromColumn: products.supplier_id
+	toColumn: suppliers.supplier_id
+
+relationship AutoDetected_583a3409-4584-4bb4-a462-466072bd1641
+	fromColumn: territories.region_id
+	toColumn: region.region_id
+
+relationship AutoDetected_822178bf-4b76-4162-a801-cbab6f65badf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: employee_territories.territory_id
+	toColumn: territories.territory_id
+

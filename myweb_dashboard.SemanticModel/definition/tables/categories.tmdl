@@ -1,0 +1,51 @@
+table categories
+	lineageTag: 9c0794f5-6b26-474b-8008-6b49d7ee9ec7
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 26fe109e-2893-4600-a498-ac447e930b01
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: c4ed146b-e1ca-4739-8f2b-0c73251dd6b7
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 394c5273-d0ad-470e-8e39-1be4cfa78676
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column picture
+		dataType: string
+		lineageTag: 3a5f6835-7c51-417a-b0b7-60ee654034a8
+		summarizeBy: none
+		sourceColumn: picture
+
+		annotation SummarizationSetBy = Automatic
+
+	partition categories = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(API & "/bronze_categories")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"category_id", "category_name", "description", "picture"}, {"category_id", "category_name", "description", "picture"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"category_id", Int64.Type}, {"category_name", type text}, {"description", type text}, {"picture", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
