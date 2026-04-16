@@ -47,6 +47,13 @@ table order_details
 
 		annotation SummarizationSetBy = Automatic
 
+	column Profit = [quantity] * [unit_price]
+		formatString: 0.0
+		lineageTag: a0c2bd67-b5e3-4fc4-ac76-10e05d4f3a79
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition order_details = m
 		mode: import
 		source =

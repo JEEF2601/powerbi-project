@@ -164,6 +164,12 @@ table employees
 
 		annotation SummarizationSetBy = Automatic
 
+	column name = [first_name] &" " & [last_name]
+		lineageTag: ddf10cf8-f235-46f0-940a-b50e6e938ce5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition employees = m
 		mode: import
 		source =

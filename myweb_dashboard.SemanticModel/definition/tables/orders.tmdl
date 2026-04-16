@@ -79,7 +79,7 @@ table orders
 		dataType: int64
 		formatString: 0
 		lineageTag: 443aece3-9407-4fae-942e-f390196ee70a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: ship_via
 
 		annotation SummarizationSetBy = Automatic
@@ -113,6 +113,7 @@ table orders
 	column ship_city
 		dataType: string
 		lineageTag: a062ebde-df5d-404d-b632-2b70f0658d1f
+		dataCategory: City
 		summarizeBy: none
 		sourceColumn: ship_city
 
@@ -137,6 +138,7 @@ table orders
 	column ship_country
 		dataType: string
 		lineageTag: d670184e-9f87-4878-bf4a-092d5acbd562
+		dataCategory: Country
 		summarizeBy: none
 		sourceColumn: ship_country
 

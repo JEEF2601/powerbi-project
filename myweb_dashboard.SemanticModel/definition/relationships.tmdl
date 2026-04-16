@@ -61,3 +61,7 @@ relationship AutoDetected_822178bf-4b76-4162-a801-cbab6f65badf
 	fromColumn: employee_territories.territory_id
 	toColumn: territories.territory_id
 
+relationship f9bfd229-4a93-e0ed-4156-a9f94098abe8
+	fromColumn: orders.ship_via
+	toColumn: shippers.shipper_id
+

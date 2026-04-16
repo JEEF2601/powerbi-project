@@ -1,0 +1,50 @@
+table Principal_Page_Parameter
+	lineageTag: cf94c41e-4fe0-4425-ba04-dc50f85a210c
+
+	column Principal_Page_Parameter
+		lineageTag: 58b9118a-26fb-4d26-8636-01143a85c511
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Principal_Page_Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Principal_Page_Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Principal_Page_Parameter Fields'
+		isHidden
+		lineageTag: 2f018b89-c031-42fc-b13a-0b1e387f62f8
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Principal_Page_Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Principal_Page_Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: adae9fc8-f39c-4346-bd4f-c3223b38ed94
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Principal_Page_Parameter = calculated
+		mode: import
+		source =
+				{
+				    ("Profit", NAMEOF('measures_table'[Profit]), 0),
+				    ("Avg. Order", NAMEOF('measures_table'[Avg. Order]), 1),
+				    ("Seller_count", NAMEOF('measures_table'[Seller_count]), 2),
+				    ("Orders", NAMEOF('measures_table'[Order_count]), 3)
+				}
+
+	annotation PBI_Id = fdaa24deb85249bea4e71928488b3e09
+

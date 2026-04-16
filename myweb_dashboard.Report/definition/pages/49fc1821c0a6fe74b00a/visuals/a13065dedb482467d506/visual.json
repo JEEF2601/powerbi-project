@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a13065dedb482467d506",
+  "position": {
+    "x": 272,
+    "y": 376.41337386018239,
+    "z": 19500,
+    "height": 213.00911854103344,
+    "width": 275.74468085106383
+  },
+  "visualGroup": {
+    "displayName": "Avg. Order_GroupCard",
+    "groupMode": "ScaleMode"
+  }
+}

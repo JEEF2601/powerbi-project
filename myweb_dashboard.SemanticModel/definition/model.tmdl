@@ -30,6 +30,8 @@ ref table region
 ref table territories
 ref table employee_territories
 ref table us_states
+ref table measures_table
+ref table Principal_Page_Parameter
 
 ref cultureInfo en-US
 

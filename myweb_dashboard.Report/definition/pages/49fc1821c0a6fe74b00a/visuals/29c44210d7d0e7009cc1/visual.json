@@ -3,10 +3,11 @@
   "name": "29c44210d7d0e7009cc1",
   "position": {
     "x": 0,
-    "y": 59.582475256344878,
+    "y": 59.659905373637081,
     "z": 2000,
-    "height": 45.671641791044777,
-    "width": 186.71641791044775
+    "height": 45.73099415204679,
+    "width": 186.71641791044775,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "actionButton",
@@ -217,6 +218,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'PageNavigation'"
+                }
+              }
+            },
+            "navigationSection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'d338c3509a5264372c1e'"
                 }
               }
             }

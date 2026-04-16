@@ -5,7 +5,7 @@ table shippers
 		dataType: int64
 		formatString: 0
 		lineageTag: 22dafb6a-e6d8-4d45-ac90-288a5aa79d60
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: shipper_id
 
 		annotation SummarizationSetBy = Automatic

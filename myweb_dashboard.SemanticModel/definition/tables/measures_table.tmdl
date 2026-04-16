@@ -1,0 +1,84 @@
+table measures_table
+	lineageTag: 424eb3c8-b31a-48da-91fe-a5b8c1e3da6a
+
+	measure Profit =
+			
+			// Revenew base measure
+			SUM(order_details[Profit])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: bases
+		lineageTag: 96fda005-50d0-49c6-8a96-71576fc909f5
+
+	measure 'Last year' =
+			
+			
+			CALCULATE(
+			    [Principal_med],
+			    FILTER(
+			        ALL(orders),
+			        'orders'[shipped_date] = MAX('orders'[shipped_date]) - 1
+			    )
+			)
+		displayFolder: Principal_Page
+		lineageTag: 59005ce5-93af-4708-b8ed-182f721d2613
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Customer_count = DISTINCTCOUNT(orders[customer_id])
+		formatString: 0
+		displayFolder: bases
+		lineageTag: d2de18a8-afdd-4d30-9628-62756f1ee31b
+
+	measure Order_count = DISTINCTCOUNT(order_details[order_id])
+		formatString: 0
+		displayFolder: bases
+		lineageTag: cf3d7396-3216-4c8b-b2ef-9a705f3a83f9
+
+	measure Seller_count = DISTINCTCOUNT(orders[employee_id])
+		formatString: 0
+		displayFolder: bases
+		lineageTag: 346238ed-b56c-47c7-8195-cba43fee1a9e
+
+	measure Principal_med = ```
+			
+			// [Revenew]
+			// Esta medida seleciona el campo selecionado en el parametro Principal_Page_Parameter y devuelve el valor original de la medida, hacemos esto para evitar problemas de compatibilidad con algunas figuras
+			
+			SWITCH(
+			    SELECTEDVALUE(Principal_Page_Parameter[Principal_Page_Parameter Order])
+			    ,0,[Profit]
+			    ,1,[Avg. Order]
+			    ,2,[Seller_count]
+			    ,3,[Order_count]
+			)
+			
+			```
+		displayFolder: Principal_Page
+		lineageTag: c2da3f1b-ecb0-453e-89e8-402b11d21ee5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg. Order' = AVERAGE(order_details[Profit])
+		displayFolder: bases
+		lineageTag: 8573f007-b1b4-4053-ae92-3d9937008613
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 38fe9430-f62a-4810-a5da-8f52b56c886e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition measures_table = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 140c94f983f94639b58c5bd92e16e07e
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
