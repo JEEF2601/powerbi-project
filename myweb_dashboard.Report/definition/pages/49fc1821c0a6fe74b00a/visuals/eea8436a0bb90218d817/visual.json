@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "eea8436a0bb90218d817",
   "position": {
     "x": 272.68656716417911,
     "y": 139.70149253731344,
     "z": 20000,
-    "height": 213.58208955223884,
-    "width": 276.71641791044783,
-    "tabOrder": 22010
+    "height": 213.58208955223881,
+    "width": 276.71641791044777,
+    "tabOrder": 16000
   },
   "visualGroup": {
     "displayName": "Profit_GroupCard",

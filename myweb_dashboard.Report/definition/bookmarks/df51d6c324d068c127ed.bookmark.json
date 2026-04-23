@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
-  "displayName": "PP_SellerCounter_BM",
+  "displayName": "PP_RepeatCustomers_BM",
   "name": "df51d6c324d068c127ed",
   "options": {
     "targetVisualNames": []
@@ -44,7 +44,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''measures_table''[Seller_count]'"
+                                "Value": "'''measures_table''[Repeat Customers]'"
                               }
                             }
                           ]
@@ -83,19 +83,25 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "'''measures_table''[Seller_count]'"
+                            "Value": "'''measures_table''[Repeat Customers]'"
                           }
                         }
                       }
                     }
                   },
-                  "displayName": "Seller_count"
+                  "displayName": "Repeat Customers"
                 }
               ]
             }
           }
         },
         "visualContainers": {
+          "0054bca03cd3e6110a50": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "034591ac88ad859267cd": {
             "filters": {
               "byExpr": [
@@ -199,6 +205,12 @@
               }
             }
           },
+          "118d21b4a018a14980ce": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "14e7ac64070367197600": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -253,6 +265,45 @@
                   }
                 }
               ]
+            }
+          },
+          "19f9d5094518527c565c": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "290c8133019c41e9ad89": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "29c44210d7d0e7009cc1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2ad1983c132b1cc58b68": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3701e23fea3d5d930923": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4b0cf3ff80aa2a268a0d": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
             }
           },
           "4e71445398027a195dbc": {
@@ -310,10 +361,44 @@
               }
             }
           },
-          "852b882140ba7d0c181a": {
+          "4f511224dc83c1e532b0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "15ca44cd6ad6c89e3a78",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Avg. Order"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Avg. Order"
+                    }
+                  }
+                }
+              ]
             }
           },
           "5945a6619509ca7202e2": {
@@ -322,27 +407,205 @@
               "objects": {}
             }
           },
+          "60ecc13fe2325c9a69a4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "24cd33c1376a06606de6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "orders"
+                        }
+                      },
+                      "Property": "ship_city"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "orders"
+                        }
+                      },
+                      "Property": "ship_city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6c148818d2b27762b500": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d58d9840a0be9db51797",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Repeat Customers"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Seller_count"
+                    }
+                  }
+                }
+              ]
+            }
+          },
           "700b75f94b822a3a0ac3": {
             "singleVisual": {
               "visualType": "textbox",
               "objects": {}
             }
           },
-          "290c8133019c41e9ad89": {
+          "726a15cbdb5759a40dc0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6bbde45450d7cb2c40eb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "categories"
+                        }
+                      },
+                      "Property": "category_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "categories"
+                        }
+                      },
+                      "Property": "category_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7b1be87a61ec56ce7643": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bd8fb24702006b497100",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Order_count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "measures_table"
+                        }
+                      },
+                      "Property": "Order_count"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "852b882140ba7d0c181a": {
             "singleVisual": {
               "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "0054bca03cd3e6110a50": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "29c44210d7d0e7009cc1": {
-            "singleVisual": {
-              "visualType": "actionButton",
               "objects": {}
             }
           },
@@ -352,35 +615,75 @@
               "objects": {}
             }
           },
-          "e671e22f120401aa81d0": {
+          "a9ef69df2dc20e2404b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2b9c4baeaea8d30a4e80",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "suppliers"
+                        }
+                      },
+                      "Property": "company_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "suppliers"
+                        }
+                      },
+                      "Property": "company_name"
+                    }
+                  }
+                ]
+              }
             }
           },
-          "19f9d5094518527c565c": {
+          "aec50cc83d62b1d64004": {
             "singleVisual": {
               "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "dfcad94410b040522a03": {
-            "singleVisual": {
-              "visualType": "textbox",
-              "objects": {}
-            }
-          },
-          "ed55534b0d03a080a000": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
             }
           },
           "b10eba235b6bbe464b49": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "157216a5a8aaa64182b2",
+                  "name": "81a4c2588519a42d79c0",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -473,6 +776,21 @@
                     }
                   },
                   "howCreated": 0
+                },
+                {
+                  "name": "713367aaca5d82da0b2d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "employees"
+                        }
+                      },
+                      "Property": "name"
+                    }
+                  },
+                  "howCreated": 0
                 }
               ]
             },
@@ -538,10 +856,17 @@
                         "categories.category_name"
                       ],
                       "isCollapsed": true
+                    },
+                    {
+                      "queryRefs": [
+                        "employees.name"
+                      ],
+                      "isCollapsed": true
                     }
                   ],
                   "root": {
-                    "identityValues": []
+                    "identityValues": [],
+                    "isToggled": true
                   }
                 }
               ]
@@ -551,21 +876,16 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "f249e3d57e3893cadabe",
+                  "name": "5d8e26c17c2238c500a0",
                   "type": "Advanced",
                   "expression": {
-                    "Aggregation": {
+                    "Measure": {
                       "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "order_details"
-                            }
-                          },
-                          "Property": "Profit"
+                        "SourceRef": {
+                          "Entity": "measures_table"
                         }
                       },
-                      "Function": 0
+                      "Property": "Profit"
                     }
                   },
                   "howCreated": 0
@@ -597,11 +917,99 @@
               ]
             }
           },
+          "bbaf8180990c660b92b9": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "dfcad94410b040522a03": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "e671e22f120401aa81d0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e7c8da7178b1447ed5e1": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ea2e765b1078c07339b7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1e77d58f75ae07e650e1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "shippers"
+                        }
+                      },
+                      "Property": "company_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "shippers"
+                        }
+                      },
+                      "Property": "company_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ed55534b0d03a080a000": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
           "ed563b1509a4ce55a092": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "638f79e22b2dae1a780b",
+                  "name": "1c8020b69c946420d3b4",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -621,7 +1029,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "7e3ba758ded03b674ea0",
+                  "name": "6911e72c2761054d2cac",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -651,7 +1059,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "567357eccc7957306b1c",
+                  "name": "000fc6cf40b37b65c6e6",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -666,7 +1074,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "f128af9666271d0d0d48",
+                  "name": "ec3c60681e024c3330e7",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -720,7 +1128,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "5890a2463670dc923d31",
+                  "name": "50c4ec57903cc4c6a70b",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -746,7 +1154,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "4c04db6347c1d2360b65",
+                  "name": "5edf088e79c951879d45",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -772,7 +1180,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "914dd197e62e286cd136",
+                  "name": "79314f8206112e453288",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -798,7 +1206,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "067651a8521de7d0bb7b",
+                  "name": "a1a78b5889544000c904",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -824,7 +1232,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b1df264325100018a704",
+                  "name": "aaa2838a5dabeb6085d2",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -839,7 +1247,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "a9d4dac326c309d60334",
+                  "name": "333600ac0596b0ae1556",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -926,397 +1334,11 @@
                 ]
               }
             }
-          },
-          "60ecc13fe2325c9a69a4": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "24cd33c1376a06606de6",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "orders"
-                        }
-                      },
-                      "Property": "ship_city"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "orders"
-                        }
-                      },
-                      "Property": "ship_city"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "ea2e765b1078c07339b7": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "1e77d58f75ae07e650e1",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "shippers"
-                        }
-                      },
-                      "Property": "company_name"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "shippers"
-                        }
-                      },
-                      "Property": "company_name"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "a9ef69df2dc20e2404b8": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "5f9c94c5a8bbca03041e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "suppliers"
-                        }
-                      },
-                      "Property": "company_name"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "suppliers"
-                        }
-                      },
-                      "Property": "company_name"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "726a15cbdb5759a40dc0": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "1c5d86cb2098db7070b6",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "categories"
-                        }
-                      },
-                      "Property": "category_name"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "categories"
-                        }
-                      },
-                      "Property": "category_name"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "bbaf8180990c660b92b9": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {},
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "4b0cf3ff80aa2a268a0d": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {},
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "2ad1983c132b1cc58b68": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "4f511224dc83c1e532b0": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "265069a3a5612a3267c1",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Avg. Order"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Avg. Order"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "e7c8da7178b1447ed5e1": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "3701e23fea3d5d930923": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "6c148818d2b27762b500": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "cd76590a081bc6555b50",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Seller_count"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Seller_count"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "aec50cc83d62b1d64004": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {},
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "118d21b4a018a14980ce": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "7b1be87a61ec56ce7643": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "f3af13e1bd15590208b7",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Order_count"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "measures_table"
-                        }
-                      },
-                      "Property": "Order_count"
-                    }
-                  }
-                }
-              ]
-            }
+          }
+        },
+        "visualContainerGroups": {
+          "a13065dedb482467d506": {
+            "isHidden": false
           }
         }
       }

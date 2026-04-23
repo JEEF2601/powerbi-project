@@ -24,7 +24,7 @@ expression customer_customer_demo =
 
 	annotation PBI_ResultType = Table
 
-expression API = "|API|" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression API = "https://postgrest.jeefdata.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: 6d641db7-0581-49b4-b75b-3860c22e1bb2
 
 	annotation PBI_NavigationStepName = Navigation

@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "c37abae07b25cc3d069a",
   "position": {
     "x": 271.36778115501522,
     "y": 612.76595744680856,
     "z": 18000,
-    "height": 213.00911854103344,
-    "width": 275.74468085106383
+    "height": 213.58208955223881,
+    "width": 276.71641791044777,
+    "tabOrder": 19000
   },
   "visualGroup": {
     "displayName": "Sellers Count_GroupCard",

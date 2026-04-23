@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "6c148818d2b27762b500",
   "position": {
     "x": 0,
     "y": 0,
     "z": 6000,
     "height": 213.58208955223881,
-    "width": 276.71641791044777
+    "width": 276.71641791044777,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -22,11 +23,11 @@
                       "Entity": "measures_table"
                     }
                   },
-                  "Property": "Seller_count"
+                  "Property": "Repeat Customers"
                 }
               },
-              "queryRef": "measures_table.Seller_count",
-              "nativeQueryRef": "Seller_count"
+              "queryRef": "measures_table.Repeat Customers",
+              "nativeQueryRef": "Repeat Customers"
             }
           ]
         }
@@ -353,7 +354,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "1099e326dead2d715302",
+        "name": "84d690de60717b5c8c38",
         "field": {
           "Measure": {
             "Expression": {
@@ -361,7 +362,7 @@
                 "Entity": "measures_table"
               }
             },
-            "Property": "Seller_count"
+            "Property": "Repeat Customers"
           }
         },
         "type": "Advanced"

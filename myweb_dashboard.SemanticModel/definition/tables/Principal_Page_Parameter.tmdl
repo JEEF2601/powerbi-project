@@ -42,7 +42,7 @@ table Principal_Page_Parameter
 				{
 				    ("Profit", NAMEOF('measures_table'[Profit]), 0),
 				    ("Avg. Order", NAMEOF('measures_table'[Avg. Order]), 1),
-				    ("Seller_count", NAMEOF('measures_table'[Seller_count]), 2),
+				    ("Repeat Customers", NAMEOF([Repeat Customers]), 2),
 				    ("Orders", NAMEOF('measures_table'[Order_count]), 3)
 				}
 

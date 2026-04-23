@@ -48,7 +48,7 @@ table measures_table
 			    SELECTEDVALUE(Principal_Page_Parameter[Principal_Page_Parameter Order])
 			    ,0,[Profit]
 			    ,1,[Avg. Order]
-			    ,2,[Seller_count]
+			    ,2,[Repeat Customers]
 			    ,3,[Order_count]
 			)
 			
@@ -63,6 +63,34 @@ table measures_table
 		lineageTag: 8573f007-b1b4-4053-ae92-3d9937008613
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Repeat Customers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(orders[customer_id]),
+			    FILTER(
+			        VALUES(orders[customer_id]),
+			        CALCULATE(COUNT(orders[customer_id])) > 1
+			    )
+			)
+		formatString: 0
+		displayFolder: bases
+		lineageTag: e4596dbf-85ba-437d-8064-a76ff14f83df
+
+	measure 'Total Items' = SUM('order_details'[Quantity])
+		formatString: 0
+		displayFolder: bases
+		lineageTag: 8c84ab7a-a0ab-4dec-87f8-80f517afdaef
+
+	measure 'Avg Items per Order' = DIVIDE([Total Items], [Total Orders], 0)
+		displayFolder: bases
+		lineageTag: e65d24c3-a6b2-4d6e-a5d9-594447bc3814
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT(orders[order_id])
+		formatString: 0
+		lineageTag: 1d0a72da-ceac-42e5-b936-6db7f1e6ec3f
 
 	column Column
 		isHidden
