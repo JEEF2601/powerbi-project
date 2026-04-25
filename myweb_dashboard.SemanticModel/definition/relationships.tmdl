@@ -44,6 +44,7 @@ relationship AutoDetected_e551e511-25d3-4caf-b3da-8f9d7e8264a6
 	toColumn: employees.employee_id
 
 relationship AutoDetected_1c90b8b7-fdcb-41d5-b38f-b163a324fa08
+	crossFilteringBehavior: bothDirections
 	fromColumn: employee_territories.employee_id
 	toColumn: employees.employee_id
 

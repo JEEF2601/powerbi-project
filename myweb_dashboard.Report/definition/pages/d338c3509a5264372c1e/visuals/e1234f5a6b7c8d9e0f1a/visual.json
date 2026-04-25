@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "e1234f5a6b7c8d9e0f1a",
   "position": {
-    "x": 238,
-    "y": 705,
-    "z": 1000,
+    "x": 255.22388059701493,
+    "y": 705.223880597015,
+    "z": 2000,
     "height": 360,
-    "width": 1667,
+    "width": 1649.55223880597,
     "tabOrder": 1000
   },
   "visual": {
@@ -65,7 +65,7 @@
               },
               "queryRef": "orders.shipped_date.Variation.Date Hierarchy.Quarter",
               "nativeQueryRef": "shipped_date Quarter",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -91,7 +91,7 @@
               },
               "queryRef": "orders.shipped_date.Variation.Date Hierarchy.Month",
               "nativeQueryRef": "shipped_date Month",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -121,25 +121,6 @@
             }
           ]
         },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "region"
-                    }
-                  },
-                  "Property": "region_description"
-                }
-              },
-              "queryRef": "region.region_description",
-              "nativeQueryRef": "region_description",
-              "active": true
-            }
-          ]
-        },
         "Y": {
           "projections": [
             {
@@ -150,11 +131,11 @@
                       "Entity": "measures_table"
                     }
                   },
-                  "Property": "Profit"
+                  "Property": "Principal_med"
                 }
               },
-              "queryRef": "measures_table.Profit",
-              "nativeQueryRef": "Profit"
+              "queryRef": "measures_table.Principal_med",
+              "nativeQueryRef": "Principal_med"
             }
           ]
         }
@@ -257,7 +238,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tendencia de Ventas por Región'"
+                  "Value": "'Regional Sales Trend'"
                 }
               }
             },

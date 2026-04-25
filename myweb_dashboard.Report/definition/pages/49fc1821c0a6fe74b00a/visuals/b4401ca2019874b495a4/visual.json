@@ -4,7 +4,7 @@
   "position": {
     "x": 569.55223880597009,
     "y": 139.70149253731344,
-    "z": 8000,
+    "z": 3875,
     "height": 448.65671641791045,
     "width": 564.17910447761187,
     "tabOrder": 7000
@@ -398,51 +398,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "195bf707236acedae022",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measures_table"
-              }
-            },
-            "Property": "Principal_med"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2e0d9960c59456b0ebbb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "employees"
-              }
-            },
-            "Property": "title"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "20c3f4338b817ceb4280",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "categories"
-              }
-            },
-            "Property": "category_name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

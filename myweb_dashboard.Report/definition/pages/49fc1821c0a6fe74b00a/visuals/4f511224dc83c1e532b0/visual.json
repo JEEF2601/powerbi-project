@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 6000,
+    "z": 0,
     "height": 213.58208955223881,
     "width": 276.71641791044777,
     "tabOrder": 2000
@@ -350,23 +350,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "a13065dedb482467d506",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "15ca44cd6ad6c89e3a78",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measures_table"
-              }
-            },
-            "Property": "Avg. Order"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "a13065dedb482467d506"
 }

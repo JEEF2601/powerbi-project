@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "af1d541dab290b072d57",
   "position": {
-    "x": 14.776119402985074,
+    "x": 14.589665653495441,
     "y": 139.70149253731344,
     "z": 4000,
     "height": 920,
-    "width": 222.98507462686567,
+    "width": 223.22188449848025,
     "tabOrder": 3000
   },
   "visualGroup": {
-    "displayName": "Group 4",
+    "displayName": "SideBar",
     "groupMode": "ScaleMode"
   }
 }

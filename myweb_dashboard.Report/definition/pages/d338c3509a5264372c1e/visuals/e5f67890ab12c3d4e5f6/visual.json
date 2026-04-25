@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "e5f67890ab12c3d4e5f6",
   "position": {
-    "x": 14,
-    "y": 450,
-    "z": 8000,
-    "height": 60,
-    "width": 200,
-    "tabOrder": 8000
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 60.359281437125752,
+    "width": 199.76047904191617,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -45,32 +45,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "HierarchyLevel": {
-                "Expression": {
-                  "Hierarchy": {
-                    "Expression": {
-                      "PropertyVariationSource": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "orders"
-                          }
-                        },
-                        "Name": "Variation",
-                        "Property": "shipped_date"
-                      }
-                    },
-                    "Hierarchy": "Date Hierarchy"
-                  }
-                },
-                "Level": "Year"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -184,5 +158,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "9ff43d0fd2e01d0c430d"
 }

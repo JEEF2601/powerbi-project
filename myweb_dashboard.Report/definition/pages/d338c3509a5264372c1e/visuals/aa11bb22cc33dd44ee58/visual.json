@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "aa11bb22cc33dd44ee58",
+  "position": {
+    "x": 1499.1255218469221,
+    "y": 124.40334346504558,
+    "z": 7500,
+    "height": 198,
+    "width": 405.65059755606279,
+    "tabOrder": 7000
+  },
+  "visualGroup": {
+    "displayName": "RepeatCustomers_KPI_Group",
+    "groupMode": "ScaleMode"
+  }
+}

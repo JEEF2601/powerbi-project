@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 6000,
+    "z": 0,
     "height": 213.58208955223881,
     "width": 276.71641791044777,
     "tabOrder": 1000
@@ -350,23 +350,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c37abae07b25cc3d069a",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "84d690de60717b5c8c38",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measures_table"
-              }
-            },
-            "Property": "Repeat Customers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "c37abae07b25cc3d069a"
 }

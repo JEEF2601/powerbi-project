@@ -597,56 +597,6 @@
               ]
             }
           },
-          "ed563b1509a4ce55a092": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "43bdd58f5b4d786a48e5",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "products"
-                            }
-                          },
-                          "Property": "discontinued"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "a08a14271e11ac41499b",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "order_details"
-                            }
-                          },
-                          "Property": "product_id"
-                        }
-                      },
-                      "Function": 5
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "kpi",
-              "objects": {}
-            }
-          },
           "eed83a3b0e293dbe28c6": {
             "filters": {
               "byExpr": [

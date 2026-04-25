@@ -10,7 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["order_details","customers","customer_demographics","categories","employees","suppliers","products","orders","shippers","region","territories","employee_territories","customer_customer_demo","us_states","API"]
+annotation PBI_QueryOrder = ["order_details","customers","customer_demographics","categories","employees","suppliers","products","orders","shippers","region","territories","employee_territories","customer_customer_demo","us_states","titles_table","API"]
 
 ref table order_details
 ref table customers
@@ -32,6 +32,7 @@ ref table employee_territories
 ref table us_states
 ref table measures_table
 ref table Principal_Page_Parameter
+ref table titles_table
 
 ref cultureInfo en-US
 

@@ -1,8 +1,8 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "340586600688d0ac8ad6",
   "position": {
-    "x": 0,
+    "x": 0.18645374948963322,
     "y": 97.8430186029711,
     "z": 1000,
     "height": 225.54684494478715,
@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visualGroup": {
-    "displayName": "Group 3",
+    "displayName": "Navigation_Bar",
     "groupMode": "ScaleMode"
   },
   "parentGroupName": "f77ff7b6e7975815673c"

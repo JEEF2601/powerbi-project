@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "a78901b2c3d4e5f6a7b8",
   "position": {
-    "x": 14,
-    "y": 600,
-    "z": 9000,
+    "x": 4.4408920985006262E-16,
+    "y": 150,
+    "z": 2000,
     "height": 60,
     "width": 200,
-    "tabOrder": 9000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -34,21 +34,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "categories"
-                  }
-                },
-                "Property": "category_name"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -162,5 +147,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "9ff43d0fd2e01d0c430d"
 }

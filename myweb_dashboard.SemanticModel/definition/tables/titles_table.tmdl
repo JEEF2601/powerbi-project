@@ -1,0 +1,35 @@
+table titles_table
+	lineageTag: a4f6b041-0b78-4fef-96eb-a94553eea401
+
+	measure 'Dashboard Title' = "Northwind"
+		displayFolder: Titles
+		lineageTag: 6deaf28b-a477-41f1-9b40-0119f4487e22
+
+	measure 'Principal Page Title' = "Resume"
+		displayFolder: Titles
+		lineageTag: 1bdc5ac5-359f-4e7b-9a7d-6f6252c9f433
+
+	measure 'Regional Page Title' = "Regional Sales"
+		displayFolder: Titles
+		lineageTag: 2fd9a84d-9c70-4d7b-9d48-2fba708e4f35
+
+	measure 'Dashboard Header Title' = [Dashboard Title] & "             |"
+		displayFolder: Titles
+		lineageTag: 8c46d3bd-0789-43d5-8438-0aacf34e2cb9
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 4c2c8c3f-f5f3-4fb7-921f-e55bc958a865
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition titles_table = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c17c3be3ba6b4f75a9e7c7ac6e6f0d14
+

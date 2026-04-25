@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 6000,
+    "z": 0,
     "height": 213.58208955223881,
     "width": 276.71641791044777,
     "tabOrder": 1000
@@ -351,23 +351,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "e05153ba40b083d90e42",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "bd8fb24702006b497100",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measures_table"
-              }
-            },
-            "Property": "Order_count"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "e05153ba40b083d90e42"
 }
